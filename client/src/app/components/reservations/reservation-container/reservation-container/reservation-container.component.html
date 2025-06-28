@@ -1,0 +1,20 @@
+<div *ngIf=" reservations === null; else matchTemplates">Loading...</div>
+<ng-template #matchTemplates>
+  <div *ngIf=" reservations?.length === 0; then emptyreservation; else ReservationBlock"></div>
+</ng-template>
+
+
+<ng-template #emptyreservation>
+    <div class="no-reservation">
+        There are currently no reservations today.
+    </div>
+</ng-template>
+
+<ng-template #ReservationBlock class="border w-10 h-24 flex">
+    <div class="reservation">
+        @for (reservation of reservations; track reservation){
+            <app-reservation [reservation]="reservation"></app-reservation>
+        }
+    </div>
+</ng-template>
+

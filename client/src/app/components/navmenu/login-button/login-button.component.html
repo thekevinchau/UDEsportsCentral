@@ -1,0 +1,18 @@
+<div>
+    <!--
+    <button id="signup-button" mat-button routerLink="signup" routerLinkActive="active-link"
+    class="px-4 mx-3 bg-yellow-300 text-black underline-offset-2 decoration-black shadow-md
+    transition ease-in-out delay-15 duration-300 hover:-translate-y-1 hover:scale-110 hover:underline hover:shadow-yellow-300">
+        <span class="text-black">Sign Up</span>
+    </button>
+    -->
+    <button class="buttons" mat-button *ngIf="isLoggedIn === 'false'" id="login-button" routerLink="login" routerLinkActive="active-link">
+        Login
+    </button>
+    <span *ngIf="isLoggedIn === 'true'">
+        {{getUser()}}
+    </span>
+    <button class="buttons" mat-button *ngIf="isLoggedIn === 'true'" id="logout-button" (click)="logout()" routerLink="home">
+        Log Out
+    </button>
+</div>

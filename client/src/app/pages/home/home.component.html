@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body class="body">
+    <div class="background">
+        <div class="fade-in">
+            <br>
+            <div class="title">
+                Arena Booking
+            </div>
+            <hr style="border-color:#bcccdc; border-width:2px; margin-left:0; margin-right:0; margin-bottom:2%; margin-top:1%">
+            <div class="main-container">
+                <div class="containerA" >
+                    <div class="header">Announcements</div>
+                    <br>
+                    <div class="annoucement">
+                        <announcement-box/>
+                    </div>
+                </div>
+                <div class="containerM">
+                    <div class="header">
+                        Today's Matches
+                    </div>
+                    <br>
+                    <div class="matches">
+                        <app-matches-box [filter]="'today'" [isOwner]="false" [matchFilter]="'unfinished'" [start_date]="''"></app-matches-box>
+                    </div>
+                    <br>
+                    <div class="header">Completed Matches</div>
+                    <br>
+                    <div class="matches">
+                        <app-matches-box [filter]="'today'" [isOwner]="false" [matchFilter]="'finished'" [start_date]="''"></app-matches-box>
+                    </div>
+                </div>
+                <div class="containerE">
+                    <div class="header">Events</div>
+                        <div class="events">
+                            <app-events-container [isOwner]="false" [filter]="'today'"></app-events-container>
+                        </div>
+                </div>
+            </div>
+            {{getUser()}}
+        </div>
+    </div>
+    <br>
+    <hr style="border-color:#bcccdc; border-width:2px; margin-bottom:1%;">
+</body>
+<footer class="bg-gray-900 text-center text-gray-500 py-4 -mt-2 w-screen mx-0">
+    <p>© 2024 Home. All Rights Reserved.</p>
+</footer>
+</html>

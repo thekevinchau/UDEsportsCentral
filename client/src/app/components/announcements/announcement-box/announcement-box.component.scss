@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.notification {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.3rem;
+  background-color: rgb(189, 0, 0);
+  color: #f0f4f8;
+  font-size: large;
+  border-radius: 15px;
+  margin-left: .4rem;
+  margin-right: .4rem;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05); 
+}
+
+.no-announcements {
+  min-height: 20vh;
+  text-align: center;
+  line-height: 2.5rem;
+  margin: 1rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: #f0f4f8;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #1f2937; 
+  }
+}
+
+.announcement-box {
+  max-height: 59vh;
+  overflow-y: auto;
+  width: 100%;
+  align-items: center;
+  display: flex;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #1f2937; 
+  }
+}
+
+.new {
+  width: 90%; 
+  height: 20%;
+  font-size: 1.125rem; 
+  padding-left: 2rem; 
+  padding-right: 2rem; 
+  background-color: #ef4444; 
+  color: #ffffff; 
+  text-decoration-thickness: 2px;
+  text-decoration-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  margin-top: 0.5rem; 
+  margin-bottom: 0.5rem;
+  transition: transform 0.2s ease-in-out 0.15s, box-shadow 0.3s ease-in-out 0.15s; 
+  border-radius: 15px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.new:hover {
+  transform: translateY(-0.25rem) scale(1.1); 
+  text-decoration-line: underline; 
+  box-shadow: 0px 4px 6px rgba(239, 68, 68, 1); 
+}
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Title</title>
+</head>
+<body class="body">
+    <div class="background">
+        <div class="fade-in">
+            <br>
+            <div class="title">Booking Request Form</div>
+            <hr style="border-color:#bcccdc; border-width:2px; margin-left:0; margin-right:0; margin-bottom:2%; margin-top:1%">
+            <div class="main">
+                <tui-input
+                class="selector"
+                *tuiLet="teams$ | async as teams"
+                [formControl]="teamControl"
+                [tuiTextfieldCleaner]="true"
+                >
+                    Team:
+                    <ng-container *ngIf="teams?.length">
+                        <tui-data-list *tuiDataList>
+                            <button
+                                *ngFor="let team of teams"
+                                tuiOption
+                                type="button"
+                                [value]="team"
+                                
+                            >
+                                <span class="name">{{ team }}</span>
+                            </button>
+                        </tui-data-list>
+                    </ng-container>
+                </tui-input>
+                <br><br>
+
+                <tui-input-date-time class="selector" [formControl]="startTimeControl" [tuiTextfieldCleaner]="true">Start Date and Time:</tui-input-date-time>
+                <br><br>
+                
+                <tui-input-date-time class="selector" [formControl]="endTimeControl" [tuiTextfieldCleaner]="true">End Date and Time:</tui-input-date-time>
+                <br><br>
+
+                <tui-input class="selector" [formControl]="computersControl" [tuiTextfieldCleaner]="true">Computers Needed:</tui-input>
+                <br><br>
+
+                <tui-input class="selector" [formControl]="reasonControl" [tuiTextfieldCleaner]="true">Reason:</tui-input>
+                <br><br>
+                
+                <button class="submit" appearance="secondary" tuiColor="#003c70" tuiButton type="button" (click)="submit()" 
+                >Submit</button>
+            </div>
+        </div>
+    </div>
+    <!--
+    <hr style="border-color:#bcccdc; border-width:2px; margin-bottom:1%;">
+-->
+    <footer class="bg-gray-900 text-center text-gray-500 py-4 mt-6">
+        <p>© 2024 Calendar. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

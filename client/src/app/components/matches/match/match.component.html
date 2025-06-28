@@ -1,0 +1,99 @@
+<ng-template #normalSizeTemplate>
+  <div class="flex-container">
+    <!-- Teams Section -->
+    <div class="teams">
+      <div class="flex-1 text-center space-y-0.5">
+        <p class="text-[0.75rem] md:text-xs font-semibold text-blue-400 truncate">{{ teamName }}</p>
+        <p class="text-[0.75rem] md:text-xs font-semibold text-red-400 truncate">{{ match.teams.opponent }}</p>
+      </div>
+    </div>
+  
+    <!-- Score Section -->
+    <div class="score">
+      <span class="text-base md:text-lg font-bold text-blue-400">{{ match.score.homeScore }}</span>
+      <span class="text-sm md:text-base font-medium text-gray-400">:</span>
+      <span class="text-base md:text-lg font-bold text-red-400">{{ match.score.opponentScore }}</span>
+    </div>
+  
+    <!-- Date Section -->
+    <div class="flex-1 text-right text-[0.625rem] md:text-xs text-gray-500 truncate">
+      <p class="gameDate">{{ gameDate }}</p>
+      <span class="gameTime">{{ gameTime }}</span>
+    </div>
+  
+    <!-- Status Section -->
+    <div class="status ml-4 pr-1">
+      <div [ngStyle]="currentStyle" class=" flex items-center justify-center px-2 md:px-3 py-0.5 md:py-1 rounded-full text-[0.5rem] md:text-xs font-semibold text-white uppercase tracking-wider">
+        <p>{{ match.status }}</p>
+      </div>
+    </div>
+  
+    <button
+    class="bg-gray-600 text-white text-[0.625rem] md:text-xs px-2 py-0.5 rounded hover:bg-gray-500 text-center"
+    (click)="openDialog()"
+  >
+    Details
+  </button>
+  <button *ngIf="(this.match.teams.home === userID && (this.match.status === 'Scheduled')) || isAdmin" class="text-red-500 pl-5 text-sm text-center align-middle -mr-2 -ml-4" (click)="deleteMatch()">
+    <mat-icon>
+      cancel
+    </mat-icon>
+  </button>
+
+  </div>
+</ng-template>
+
+
+<ng-template #compactMatchTemplate>
+  <div class="color flex flex-wrap items-center justify-between space-y-1 md:space-y-0 md:space-x-3 bg-gray-800 p-2 rounded-lg">
+    <!-- Teams Section -->
+    <div class="flex-1 text-center space-y-0.5">
+      <p class="text-[0.625rem] md:text-[0.75rem] font-semibold text-blue-400 truncate">
+        {{ teamName }}
+      </p>
+      <p class="text-[0.625rem] md:text-[0.75rem] font-semibold text-red-400 truncate">
+        {{ match.teams.opponent }}
+      </p>
+    </div>
+
+    <!-- Score Section -->
+    <div class="flex items-center space-x-1">
+      <span class="text-sm md:text-base font-bold text-blue-400">
+        {{ match.score.homeScore }}
+      </span>
+      <span class="text-xs md:text-sm font-medium text-gray-400">:</span>
+      <span class="text-sm md:text-base font-bold text-red-400">
+        {{ match.score.opponentScore }}
+      </span>
+    </div>
+
+    <!-- Date Section -->
+    <div class="flex-1 text-right text-[0.5rem] md:text-[0.6rem] text-gray-500">
+      <p class="gameDate">{{ gameDate }}</p>
+      <span class="gameTime">{{ gameTime }}</span>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="flex space-x-2 mt-1 md:mt-0">
+      <button
+        *ngIf="(this.match.teams.home === userID && (this.match.status === 'Scheduled')) || isAdmin"
+        class="text-red-500 text-[0.625rem] md:text-xs hover:underline"
+        (click)="deleteMatch()"
+      >
+        Delete
+      </button>
+      <button
+        class="bg-gray-600 text-white text-[0.625rem] md:text-xs px-2 py-0.5 rounded hover:bg-gray-500 text-center"
+        (click)="openDialog()"
+      >
+        Details
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="this.sizing === 'compact' then compactMatchTemplate else normalSizeTemplate">
+</div>
+  
+
+{{dateToString(this.match.match_logistics.game_time)}}

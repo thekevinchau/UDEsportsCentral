@@ -1,0 +1,33 @@
+<div class="main">
+    <header class="text-center mt-1">
+        <div class="title">Match Details</div>
+    </header>
+    <br>
+    <div class="data" id="match-scores">
+        <div class="text-center w-full h-full flex flex-col justify-center">
+            <h3 class="homeScore">{{data.match.score.homeScore}}</h3>
+            <p class="teamName">{{data.teamName}}</p>
+        </div>
+
+        <div class="text-center mx-4 flex flex-col justify-center">
+            <h1 class="text-gray-400 text-xxl font-bold">:</h1>
+          </div>
+
+        <div class="text-center w-full h-full flex flex-col justify-center">
+            <h3 class="enemyScore">{{data.match.score.opponentScore}}</h3>
+            <p class="teamName">{{data.match.teams.opponent}}</p>
+        </div>
+    </div>
+    <br>
+    <div class="extra" id="match-additional-info" >
+        <div class="text" id="stream">
+            <a href="{{data.match.match_logistics.stream_url}}">Stream</a>
+        </div>
+        <div class="text">
+            @for (link of data.match.match_logistics.match_urls; track link){
+                <a>Match Details: </a>
+                <a href="{{link}}">Tracker</a>
+            }
+        </div>
+    </div>
+</div>

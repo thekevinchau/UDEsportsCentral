@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+    <title>Event Component</title>
+</head>
+<body>
+    <div class="mb-2">
+        <div class="events">
+            <div class="btn-container" *ngIf="this.userID === this.event.owner || isAdmin === 'true'">
+                <span (click)="deleteEvent()" class="material-symbols-rounded">delete</span> 
+                <span (click)="openEditDialog()"class="material-symbols-rounded">edit</span> 
+            </div>
+            <div>
+                <div class="bigText flex">
+                    <h6>{{this.event.eventName}} </h6>
+                </div>
+        
+                <div class="smallText flex">
+                    <div class="smallText">From: {{this.eventOwner}}</div>
+                </div>
+                <div class="smallText">
+                    Date: {{this.eventDate}}
+                    {{this.eventTime}}
+                </div>
+
+                <div class="smallText">
+                    Location: {{this.event.location}}
+                </div>
+                
+                <div class="smallText">
+                    Description: {{this.event.description}}
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
+

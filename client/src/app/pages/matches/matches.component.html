@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+</head>
+<body class="body">
+    <div class="background">
+        <div class="fade-in">
+            <br>
+            <div class="wrapper">
+                <header>
+                    <div class="title">
+                        <div class="icons">
+                            <span (click)="decrementClick()" class="material-symbols-rounded">chevron_left</span>
+                            <div class="main-title">Matches for Week of {{date}}</div>
+                            <span (click)="incrementClick()" class="material-symbols-rounded">chevron_right</span>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <hr class="line" style="border-color:#bcccdc; border-width:2px; margin-left:0; margin-right:0; margin-bottom:2%; margin-top:1%">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Unfinished Matches -->
+                <div class="box-color p-4 rounded-lg shadow-lg">
+                    <div class="header">Unfinished Matches</div>
+                    <div class="padding">
+                        <app-matches-box [filter]="'week'" [isOwner]="false" [matchFilter]="'unfinished'" [start_date]="this.date"></app-matches-box>
+                    </div>
+                </div>
+
+                <!-- Finished Matches -->
+                <div class="box-color p-4 rounded-lg shadow-lg">
+                    <div class="header">Finished Matches</div>
+                    <div class="padding">
+                        <app-matches-box [filter]="'week'" [isOwner]="false" [matchFilter]="'finished'" [start_date]="this.date"></app-matches-box>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="border-color:#bcccdc; border-width:2px; margin-bottom:1%;">
+</body>
+</html>
+    
+
+

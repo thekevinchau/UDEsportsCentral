@@ -1,0 +1,23 @@
+<div *ngIf="matches === null; else matchTemplates">Loading...</div>
+<ng-template #matchTemplates>
+  <div *ngIf="matches?.length === 0 && this.filter === 'today'; then emptyMatches; else MatchBlock"></div>
+  <div *ngIf="matches?.length === 0 && this.filter === 'week' then emptyMatchesWeekly; else MatchBlock"></div>
+</ng-template>
+
+
+<ng-template #emptyMatches>
+    There are currently no matches today.
+</ng-template>
+
+<ng-template #emptyMatchesWeekly>
+    There are no matches this week.
+</ng-template>
+
+<ng-template #MatchBlock class="border w-10 h-24">
+    <div class="matches">
+        @for (match of matches; track match){
+            <app-match [match]="match" [sizing]="this.sizing"/>
+        }
+    </div>
+</ng-template>
+

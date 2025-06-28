@@ -1,0 +1,41 @@
+{{ getAdmin() }}
+
+<button matbutton *ngIf="isAdmin === 'true'" (click)="openCreateAnnouncementDialog()"
+class="new">
+    Send New Announcement
+</button>
+
+<div class="">
+    <ng-template #emptyAnnouncements class="">
+        <div class="no-annoucements">
+            There are currently no announcements
+        </div>
+    </ng-template>
+
+    <ng-template #AnnouncementBlock class="">
+                      <!--
+        <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+            <div *cdkVirtualFor="let announcement of announcements" class="example-item">
+                <div class="h-full w-full flex flex-col-reverse m-2">
+                    @for (announcement of announcements; track announcement){
+                        <announcement [announcement]="announcement"/>
+                    }
+                </div>
+            </div>
+        </cdk-virtual-scroll-viewport>
+        -->
+        <div class="announcement-box">
+            <div class="flex flex-col-reverse">
+                @for (announcement of announcements; track announcement){
+                    <announcement [announcement]="announcement"/>
+                }
+            </div>
+        </div>
+    </ng-template>
+
+</div>
+
+<div *ngIf="announcements.length === 0 then emptyAnnouncements else AnnouncementBlock">
+</div>
+
+

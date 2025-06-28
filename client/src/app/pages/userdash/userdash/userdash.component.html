@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+</head>
+<body class="body">
+    <div class="background">
+        <div class="fade-in">
+            <br>
+            <div class="title">
+                User Dashboard
+            </div>
+            <hr style="border-color:#bcccdc; border-width:2px; margin-left:0; margin-right:0; margin-bottom:2%; margin-top:1%">
+            <div class="main-container">
+                <div class="containerL">
+                    <div class="header flex justify-between items-center">Events                     <button (click)="openAddEventDialog()" class="text-white text-sm mt-3">Add Event</button></div>
+                    <br>
+                    <div class="events">
+                        <app-events-container [isOwner]="true" [filter]="'week'"></app-events-container>
+                    </div>
+                </div>
+                <div class="middle">
+                    <div class="containerMT">
+                        <div class="header">Reservations</div>
+                        <br>
+                        <app-reservation-container></app-reservation-container>
+                    </div>
+                    <div class="containerMB">
+                        <div class="wrapper">
+                            <header>
+                                <div class="header-row">
+                                    <div class="header-match">Matches for Week of {{date}}</div>
+                                    <div class="icons">
+                                        <span (click)="decrementClick()" class="material-symbols-rounded">chevron_left</span>
+                                        <span (click)="incrementClick()" class="material-symbols-rounded">chevron_right</span>
+                                        <div class="paddingButton">
+                                            <button class="add" (click)="openAddDialog()">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                        <br>
+                        <div class="matches1">
+                            <app-matches-box [filter]="'week'" [isOwner]="true" [matchFilter]="'unfinished'" [start_date]="this.date"></app-matches-box>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="containerR">
+                    <div class="header">Past Matches</div>
+                    <div class="matches2">
+                        <app-matches-box [filter]="'week'" [isOwner]="true" [matchFilter]="'finished'" [sizing]="'compact'" [start_date]="this.date"></app-matches-box>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="border-color:#bcccdc; border-width:2px; margin-bottom:1%;">
+</body>
+</html>

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.buttons {
+    color: #bcccdc !important;
+    padding: 0.5rem 1.5rem; 
+    margin: 0 0.5rem; 
+    font-size: 1.3rem; 
+    font-weight: 500; 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+    border-radius: 4px; 
+    transition: all 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-0.25rem); 
+      background-color: #f0f4f844; 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    }
+  
+    &.active-link {
+      color:#f0f4f8 !important; 
+      font-weight: 900; 
+    }
+  }

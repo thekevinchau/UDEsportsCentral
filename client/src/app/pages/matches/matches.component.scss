@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background { 
+  background-color: #2d3748;
+  min-height: 90vh;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out; /* Animation duration and easing */
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.title {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bolder;
+  color: #f0f4f8;
+}
+
+.matches1 {
+  text-align: center;
+  line-height: 2.5rem;
+  align-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
+  background-color:#202936;
+  border-radius: 25px;
+  height: 70vh;
+  max-height: 70vh;
+  padding-top: 1%;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.matches2 {
+  width: 200px; 
+  height: 100px; 
+  background-color: #202936;
+  color: #f0f4f8;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+
+}
+
+.body {
+  margin:auto;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: 	#2d3748;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  flex-wrap: wrap; 
+  gap: 1rem; 
+}
+
+.matches {
+  text-align: center;
+  line-height: 2.5rem;
+  align-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
+  background-color:#202936;
+  border-radius: 25px;
+  height: 70vh;
+  max-height: 70vh;
+  padding-top: 1%;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+header .icons{
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+header .icons span{
+  margin: 0 1px;
+  cursor: pointer;
+  color: #f0f4f8;
+  text-align: center;
+  font-size: 3rem;
+  @apply select-none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f218;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .title {
+  display: flex;
+  align-items: center;
+}
+
+.main-title {
+  width: 90vh;
+}
+
+.header {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 35px;
+  text-align: center;
+  font-weight: bolder;
+  color: #f0f4f8;
+}
+
+.box-color {
+  background-color: #202936;
+}
+
+.padding {
+  padding: 1%;
+  overflow-y: auto;
+  max-height: 60vh;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #1f2937;
+  }
+}

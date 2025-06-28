@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #1f2937; 
+  }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col items-center space-y-6 p-6 overflow-auto">
+    <form [formGroup]="applyForm" (submit)="submitForm()" class="flex flex-col w-full max-w-md space-y-4">
+        <h3 class="text-center">Create a match!</h3>
+        <div>
+            <h5>Team Information</h5>
+            <div class="flex flex-col">
+                <label for="opponent-name" class="text-sm font-medium">Opponent Name</label>
+                <input 
+                id="opponent-name" 
+                type="text" 
+                formControlName="opponentName" 
+                class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+                >
+            </div>
+        </div>
+
+        <div>
+            <h5>Scores</h5>
+            <label>Home Team Score</label>
+            <div class="flex flex-col pb-2">
+                <input 
+                  id="home-score" 
+                  type="text" 
+                  formControlName="homeScore" 
+                  class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                >
+              </div>
+
+              <label>Opponent Score</label>
+              <div class="flex flex-col">
+                <input 
+                  id="opponent-score" 
+                  type="text" 
+                  formControlName="opponentScore" 
+                  class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                >
+              </div>
+        </div>
+
+        <div>
+            <h5>Match Logistics</h5>
+            <div class="flex flex-col">
+                <label for="stream-url" class="text-sm font-medium">Stream URL</label>
+                <input 
+                  id="stream-url" 
+                  type="text" 
+                  formControlName="streamUrl" 
+                  class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                >
+              </div>
+              <div class="flex flex-col">
+                <label for="match-url" class="text-sm font-medium">Match URL</label>
+                <input 
+                  id="match-url" 
+                  type="text" 
+                  formControlName="matchUrl" 
+                  class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                >
+                <button [disabled]="!this.applyForm.value.matchUrl" (click)="addToMatchUrls()" type="button">Add URL</button>
+                <p *ngIf="this.error" class="text-red-500">{{this.error}}</p>
+                <ul>
+                    @for (url of matchUrls; track url){
+                        <li>{{url}}</li>
+                    }
+                </ul>
+              </div>  
+              <div class="flex flex-col">
+                <label for="match-date" class="text-sm font-medium">Match Date</label>
+                <input type="datetime-local" id="match-date" formControlName="MatchDate">
+              </div>
+        </div>
+
+        <div>
+          <h5>Status</h5>
+          <select formControlName="MatchState">
+            <option *ngFor="let state of matchStates" [ngValue]="state">
+              {{state}}
+            </option>
+          </select>
+        </div>
+      <button 
+        type="submit"
+        class="mt-4 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</body>
+</html>
+

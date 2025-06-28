@@ -1,0 +1,31 @@
+<div class="bg-[#2d3748] shadow-md px-12 py-4 text-[#f0f4f8]">
+  <h2 mat-dialog-title class="font-black text-center">{{ action() }} Announcement</h2>
+  <div mat-dialog-content class="mat-typography bg-[#202936] rounded-lg">
+    <div class="flex-initial">
+      <h5 class="text-[#f0f4f8]">
+        Message:
+      </h5>
+      <div mat-form-field class="h-32">
+        <textarea class="text-black -mt-2 rounded-md p-2" cols="55" rows="5" matInput [(ngModel)]="message" placeholder="What's your message?"></textarea>
+      </div>
+    </div>
+    <!--
+    <div class="flex-initial">
+      <h5 class="text-black">
+        Additional Information:
+      </h5>
+      <div mat-form-field class="h-32">
+        <textarea class="text-black -m-2" cols="55" rows="5" matInput [(ngModel)]="footer" placeholder="What's your footer?"></textarea>
+      </div>
+    </div>
+  </div>
+  -->
+  <div mat-dialog-actions class="flex">
+    <button mat-button [mat-dialog-close]="message()" class="flex-auto py-2 mx-3 bg-green-600 text-[#f0f4f8] underline-offset-2 decoration-[#f0f4f8] shadow-md
+    transition ease-in-out delay-15 duration-300 hover:-translate-y-1 hover:scale-110 hover:underline hover:bg-green-700"
+    cdkFocusInitial>Send</button>
+    <button mat-button class="flex-auto py-2 mx-3 bg-red-600 text-[#f0f4f8] underline-offset-2 decoration-[#f0f4f8] shadow-md
+    transition ease-in-out delay-15 duration-300 hover:-translate-y-1 hover:scale-110 hover:underline hover:bg-red-700" 
+    (click)="onNoClick()">Cancel</button>
+  </div>
+</div>

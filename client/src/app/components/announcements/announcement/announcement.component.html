@@ -1,0 +1,39 @@
+<!--
+{{ parseDateToString(announcement.createdAt) }}
+{{ parseDateToString(announcement.updatedAt) }}
+-->
+
+<div class="annoucement">
+   <!-- Header Section -->
+   <div class="flex items-center mb-4">
+      <img src="https://archive.org/download/discordprofilepictures/discordgrey.png" class="rounded-full h-12 w-12 mr-4"/>
+      <div>
+         <div class="name">{{ announcement.createdBy }}</div>
+         <p class="smalltext">Created | {{ createdAt }}</p>
+         <p class="smalltext">Updated | {{ updatedAt }}</p>
+      </div>
+      <div class="dots">
+        <button mat-icon-button *ngIf="isAdmin === 'true'" [matMenuTriggerFor]="menu">
+          <mat-icon style="color:#f0f4f8;">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="bg-white border-0">
+          <button mat-menu-item (click)="updateAnnouncement()"
+          class="bg-white hover:bg-gray-400 text-gray-700">
+            <mat-icon style="color: darkslategray;">settings</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item (click)="deleteAnnouncement()"
+          class="bg-white hover:bg-gray-400 text-gray-700">
+            <mat-icon style="color: darkslategray;">delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </div>
+   </div>
+
+   <!-- Message Section -->
+   <p class="annoucement-message">{{ announcement.message }}</p>
+
+   <!-- Optional Footer 
+   <div class="text-sm text-gray-500 italic">{{ announcement.footer }}</div>-->
+</div>

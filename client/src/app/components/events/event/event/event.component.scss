@@ -1,0 +1,64 @@
+.events {
+    display: flex;                
+    flex-direction: column;  
+    align-items:flex-start;    
+    padding: 1.5rem;     
+    border-radius: 0.375rem; 
+    border: 1px solid #374151;        
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: #2d3748;     
+    max-width: 28rem;             
+    margin-left: auto;           
+    margin-right: auto;    
+    min-height: 50%;
+    position: relative;
+}
+
+.bigText {
+    font-size: 24px;
+    color: #f0f4f8;
+}
+
+.medText {
+    font-size: 18px;
+    color: #f0f4f8;
+}
+
+.smallText {
+    font-size: 12px;
+    color: #f0f4f8;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.buttons {
+    width: 50%;
+    display: inline;
+    margin: auto;
+    font-size: 15px;
+    border-radius: 15px;
+    border: 2px solid #f0f4f8;
+    height: 30px;
+    color: #f0f4f8;
+    margin-right: 5%;
+}
+
+.btn-container {
+    position: absolute;
+    top: 15%; 
+    right: 5%; 
+    display: flex;
+    gap: 8px; 
+    cursor: pointer; 
+}
+
+.material-symbols-rounded {
+    font-size: 24px; 
+    color: #f0f4f8; 
+    transition: color 0.3s; 
+}
+
+.material-symbols-rounded:hover {
+    color: #f0f4f888; 
+}

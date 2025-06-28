@@ -1,0 +1,35 @@
+<mat-toolbar class="navbar">
+    <div class="left-aligned">
+        <button #navButton id="homeBtn" mat-button routerLink="home" routerLinkActive="active-link"
+        class="buttons" (click)="setActiveButton('homeBtn')">
+            <img class="logo" alt="home" src="https://i.ibb.co/xLkW9TR/UD-logo.png"/>
+        </button>
+        <button #navButton id="calendarBtn" mat-button routerLink="calendar" routerLinkActive="active-link"
+        class="buttons" (click)="setActiveButton('calendarBtn')">
+          Calendar
+        </button>
+        <button #navButton id="bookingBtn" mat-button routerLink="booking" routerLinkActive="active-link"
+          class="buttons" (click)="setActiveButton('bookingBtn')">
+          Booking
+        </button>
+        <button #navButton id="matchesBtn" mat-button routerLink="matches" routerLinkActive="active-link"
+          class="buttons" (click)="setActiveButton('matchesBtn')">
+          Matches
+        </button>
+        <button *ngIf="isLoggedIn === 'true' && isAdmin === 'false'" #navButton id="userdashBtn" mat-button routerLink="userDash" routerLinkActive="active-link"
+          class="buttons" (click)="setActiveButton('userdashBtn')">
+          Dashboard
+        </button>
+        <button #navButton id="adminBtn" mat-button routerLink="admin" routerLinkActive="active-link" *ngIf="isAdmin === 'true'"
+          class="buttons" (click)="setActiveButton('adminBtn')">
+          Admin
+        </button>
+      </div>
+      <div class="right-aligned">
+        <span #navButton id="loginBtn" (click)="setActiveButton('loginBtn')">
+          <app-login-button></app-login-button>
+        </span>
+      </div>
+      <div class="slider" [ngStyle]="{'left.px': sliderLeft, 'width.px': sliderWidth}"></div>
+  </mat-toolbar>
+  

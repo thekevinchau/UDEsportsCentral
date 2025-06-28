@@ -1,0 +1,27 @@
+<div class="flex flex-col items-center space y-6 p-6">
+    <form [formGroup]="eventForm" class="flex flex-col w-full max-w-md space-y-4">
+        <h3>Create an event!</h3>
+        <div class="flex flex-col">
+            <label for="eventName" class="text-sm font-medium">Event Name</label>
+            <input id="eventName" type="text" formControlName="eventName" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required> 
+        </div>
+
+        <div class="flex flex-col">
+            <label for="eventDescription" class="text-sm font-medium">Event Description</label>
+            <textarea id="eventDescription" type="text" formControlName="description" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea> 
+        </div>
+
+        <div class="flex flex-col">
+            <label for="location" class="text-sm font-medium">Location</label>
+            <input id="location" type="text" formControlName="location" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required> 
+        </div>
+
+        <div class="flex flex-col">
+            <label for="date" class="text-sm font-medium">Date</label>
+            <input type="datetime-local" formControlName="date" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <button class="button" appearance="secondary" tuiColor="#003c70" tuiButton type="button" (click)="submitForm()">Add Event</button>
+        
+    </form>
+</div>
